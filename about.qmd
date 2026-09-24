@@ -1,0 +1,39 @@
+---
+title: "About"
+---
+
+## About Me
+
+My path into data science has been shaped by a mix of technology, analytics, and hands-on experience working with real business data.
+
+I completed my Bachelor's degree in Technology, with a major in Information Technology. That foundation gave me a strong base in computing and systems, but it was my time working professionally that shaped the direction I wanted to take.
+
+## From IT to Data Analytics
+
+After graduating, I worked as a Data Analyst, where I spent my time digging into datasets, identifying patterns, and translating raw numbers into insights that could actually inform decisions. I enjoyed the process of taking a messy, real-world problem and using data to bring clarity to it.
+
+Over time, I found myself wanting to go deeper — not just analyzing data, but understanding the full pipeline behind it: how data is collected, cleaned, modeled, and used to build solutions that scale.
+
+## Why UBC's Master of Data Science?
+
+Joining the Master of Data Science program at UBC felt like the natural next step.
+
+My background gave me a solid understanding of how data is used in practice, and an appreciation for asking the right questions before diving into analysis. The MDS program lets me build on that with deeper technical skills — programming, statistics, machine learning, and the tools that make data science reproducible and scalable.
+
+I'm especially excited to strengthen my skills in machine learning, data visualization, and building end-to-end data products.
+
+## Connecting the Dots
+
+At first glance, IT and Data Science might look like a natural fit — and in some ways they are — but the shift from working with systems and infrastructure to working with models and statistical reasoning has still been its own kind of learning curve.
+
+My experience as a Data Analyst gave me an intuition for what makes data useful in the real world. I see Data Science as the next layer on top of that: combining that practical grounding with the technical depth to build more powerful, data-driven solutions.
+
+## What I'm Learning
+
+The MDS program isn't just about algorithms and code — it's also about learning to work like a professional data scientist.
+
+For instance, through DSCI 521, I've been learning about command-line workflows, Git, GitHub, and reproducible project structures. This website is actually one of the first things I've built using those exact skills — from setting up a Quarto project, to editing files in the terminal, to previewing changes live.
+
+## Looking Forward
+
+I'm looking forward to seeing how my skills grow throughout the program. My goal is to bring together my analytics background with the technical training I'm gaining at UBC, and use both to solve real, meaningful problems with data.

@@ -1,0 +1,10 @@
+---
+title: "VAIBHAV's website"
+---
+![](IMG_8235.jpg){width=300px fig-align="center"}
+# WELCOME!
+
+This is a Quarto website.
+
+## ABOUT ME 
+Hi everyone, I’m Vaibhav. I’ve completed my Bachelor’s in Technology, with a major in Information Technology. After that, I worked as a Data Analyst. I’m really excited to be here at UBC for the Master of Data Science program and looking forward to learning new things, meeting everyone, and building my skills in data science.

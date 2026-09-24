@@ -1,0 +1,24 @@
+project:
+  type: website
+
+website:
+  title: "Vaibhav's website"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - href: about.qmd
+        text: About
+      - href: blog.qmd
+        text: Blog
+
+format:
+  html:
+    theme:
+      - cosmo
+      - brand
+    css: styles.css
+    toc: true
+
+
+
