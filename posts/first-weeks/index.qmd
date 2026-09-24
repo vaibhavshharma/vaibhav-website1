@@ -1,0 +1,8 @@
+---
+title: "My First Weeks in MDS"
+date: 2026-09-13
+---
+
+Starting the Master of Data Science program at UBC was an exciting and slightly overwhelming experience. Orientation week introduced me to my cohort, the course structure, and just how much there is to learn in the coming months.
+
+Between setting up my development environment, learning Git and GitHub workflows in DSCI 521, and meeting classmates from all kinds of backgrounds, the first few weeks have been a whirlwind — but a good one.
