@@ -4,7 +4,7 @@
     "href": "blog.html",
     "title": "Blog",
     "section": "",
-    "text": "Exploring Palmer Penguins with R\n\n\n\n\n\n\n\n\nSep 23, 2026\n\n\nVaibhav Sharma\n\n\n\n\n\n\n\n\n\n\n\n\nExploring Palmer Penguins with Python\n\n\n\n\n\n\n\n\nSep 23, 2026\n\n\nVaibhav Sharma\n\n\n\n\n\n\n\n\n\n\n\n\nMy First Weeks in MDS\n\n\n\n\n\n\n\n\nSep 13, 2026\n\n\n\n\n\nNo matching items"
+    "text": "Using R and Python Together\n\n\n\n\n\n\n\n\nSep 24, 2026\n\n\nVaibhav Sharma\n\n\n\n\n\n\n\n\n\n\n\n\nExploring Palmer Penguins with R\n\n\n\n\n\n\n\n\nSep 23, 2026\n\n\nVaibhav Sharma\n\n\n\n\n\n\n\n\n\n\n\n\nExploring Palmer Penguins with Python\n\n\n\n\n\n\n\n\nSep 23, 2026\n\n\nVaibhav Sharma\n\n\n\n\n\n\n\n\n\n\n\n\nMy First Weeks in MDS\n\n\n\n\n\n\n\n\nSep 13, 2026\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "index.html",
@@ -19,6 +19,48 @@
     "title": "VAIBHAV’s website",
     "section": "ABOUT ME",
     "text": "ABOUT ME\nHi everyone, I’m Vaibhav. I’ve completed my Bachelor’s in Technology, with a major in Information Technology. After that, I worked as a Data Analyst. I’m really excited to be here at UBC for the Master of Data Science program and looking forward to learning new things, meeting everyone, and building my skills in data science."
+  },
+  {
+    "objectID": "posts/r-python-bonus/index.html",
+    "href": "posts/r-python-bonus/index.html",
+    "title": "Using R and Python Together",
+    "section": "",
+    "text": "In this post, I use R and Python together in the same Quarto document. I first calculate a summary statistic in R and then pass that result to Python using the reticulate package.\nData: Palmer Penguins, Palmer Station Antarctica LTER."
+  },
+  {
+    "objectID": "posts/r-python-bonus/index.html#introduction",
+    "href": "posts/r-python-bonus/index.html#introduction",
+    "title": "Using R and Python Together",
+    "section": "",
+    "text": "In this post, I use R and Python together in the same Quarto document. I first calculate a summary statistic in R and then pass that result to Python using the reticulate package.\nData: Palmer Penguins, Palmer Station Antarctica LTER."
+  },
+  {
+    "objectID": "posts/r-python-bonus/index.html#calculate-a-value-in-r",
+    "href": "posts/r-python-bonus/index.html#calculate-a-value-in-r",
+    "title": "Using R and Python Together",
+    "section": "Calculate a value in R",
+    "text": "Calculate a value in R\nFirst, I use R to calculate the average body mass of the penguins after removing missing values.\n\nlibrary(palmerpenguins)\nlibrary(reticulate)\n\naverage_mass &lt;- mean(penguins$body_mass_g, na.rm = TRUE)\n\naverage_mass\n\n[1] 4201.754\n\n\nThe object average_mass is now an R object containing the mean body mass of the penguins."
+  },
+  {
+    "objectID": "posts/r-python-bonus/index.html#use-the-r-result-in-python",
+    "href": "posts/r-python-bonus/index.html#use-the-r-result-in-python",
+    "title": "Using R and Python Together",
+    "section": "Use the R result in Python",
+    "text": "Use the R result in Python\nNext, Python accesses the R object through r.average_mass. This means the value calculated in R is being used directly by Python.\n\naverage_mass_from_r = r.average_mass\n\naverage_mass_from_r\n\n4201.754385964912"
+  },
+  {
+    "objectID": "posts/r-python-bonus/index.html#perform-another-calculation-in-python",
+    "href": "posts/r-python-bonus/index.html#perform-another-calculation-in-python",
+    "title": "Using R and Python Together",
+    "section": "Perform another calculation in Python",
+    "text": "Perform another calculation in Python\nPython now uses the value received from R to convert the average body mass from grams to kilograms.\n\naverage_mass_kg = average_mass_from_r / 1000\n\naverage_mass_kg\n\n4.201754385964912\n\n\nThe result demonstrates communication between the two languages: the average body mass was calculated in R, passed to Python, and then converted from grams to kilograms in Python."
+  },
+  {
+    "objectID": "posts/first-weeks/index.html",
+    "href": "posts/first-weeks/index.html",
+    "title": "My First Weeks in MDS",
+    "section": "",
+    "text": "Starting the Master of Data Science program at UBC was an exciting and slightly overwhelming experience. Orientation week introduced me to my cohort, the course structure, and just how much there is to learn in the coming months.\nBetween setting up my development environment, learning Git and GitHub workflows in DSCI 521, and meeting classmates from all kinds of backgrounds, the first few weeks have been a whirlwind — but a good one."
   },
   {
     "objectID": "posts/penguins-r/index.html",
@@ -54,13 +96,6 @@
     "title": "Exploring Palmer Penguins with R",
     "section": "Body mass by species",
     "text": "Body mass by species\nNext, I calculate the average body mass for each penguin species.\n\nbody_mass_summary &lt;- penguins |&gt;\n  group_by(species) |&gt;\n  summarise(\n    average_body_mass = mean(body_mass_g, na.rm = TRUE),\n    .groups = \"drop\"\n  )\n\nbody_mass_summary\n\n# A tibble: 3 × 2\n  species   average_body_mass\n  &lt;fct&gt;                 &lt;dbl&gt;\n1 Adelie                3701.\n2 Chinstrap             3733.\n3 Gentoo                5076.\n\n\nThe summary shows differences in average body mass among the three species. Gentoo penguins have a higher average body mass than Adelie and Chinstrap penguins. ## Distribution of body mass\nThe following boxplot compares the distribution of body mass across penguin species.\n\nggplot(penguins, aes(x = species, y = body_mass_g)) +\n  geom_boxplot() +\n  labs(\n    x = \"Species\",\n    y = \"Body Mass (g)\",\n    title = \"Body Mass by Penguin Species\"\n  ) +\n  theme_minimal()\n\nWarning: Removed 2 rows containing non-finite outside the scale range\n(`stat_boxplot()`).\n\n\n\n\n\n\n\n\nFigure 1: Distribution of body mass across Palmer Penguin species.\n\n\n\n\n\nThe boxplot shows that Gentoo penguins generally have greater body mass than Adelie and Chinstrap penguins. The plot also shows variation in body mass within each species."
-  },
-  {
-    "objectID": "posts/first-weeks/index.html",
-    "href": "posts/first-weeks/index.html",
-    "title": "My First Weeks in MDS",
-    "section": "",
-    "text": "Starting the Master of Data Science program at UBC was an exciting and slightly overwhelming experience. Orientation week introduced me to my cohort, the course structure, and just how much there is to learn in the coming months.\nBetween setting up my development environment, learning Git and GitHub workflows in DSCI 521, and meeting classmates from all kinds of backgrounds, the first few weeks have been a whirlwind — but a good one."
   },
   {
     "objectID": "posts/penguins-python/index.html",
