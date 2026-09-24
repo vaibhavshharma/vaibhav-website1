@@ -1,0 +1,52 @@
+---
+title: "Using R and Python Together"
+author: "Vaibhav Sharma"
+date: "2026-09-24"
+format: html
+---
+
+## Introduction
+
+In this post, I use R and Python together in the same Quarto document. I first calculate a summary statistic in R and then pass that result to Python using the `reticulate` package.
+
+Data: [Palmer Penguins](https://allisonhorst.github.io/palmerpenguins/), Palmer Station Antarctica LTER.
+
+## Calculate a value in R
+
+First, I use R to calculate the average body mass of the penguins after removing missing values.
+
+```{r}
+#| message: false
+#| warning: false
+
+library(palmerpenguins)
+library(reticulate)
+
+average_mass <- mean(penguins$body_mass_g, na.rm = TRUE)
+
+average_mass
+```
+
+The object `average_mass` is now an R object containing the mean body mass of the penguins.
+
+## Use the R result in Python
+
+Next, Python accesses the R object through `r.average_mass`. This means the value calculated in R is being used directly by Python.
+
+```{python}
+average_mass_from_r = r.average_mass
+
+average_mass_from_r
+```
+
+## Perform another calculation in Python
+
+Python now uses the value received from R to convert the average body mass from grams to kilograms.
+
+```{python}
+average_mass_kg = average_mass_from_r / 1000
+
+average_mass_kg
+```
+
+The result demonstrates communication between the two languages: the average body mass was calculated in R, passed to Python, and then converted from grams to kilograms in Python.
