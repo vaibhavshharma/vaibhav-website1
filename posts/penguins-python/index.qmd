@@ -1,0 +1,77 @@
+---
+title: "Exploring Palmer Penguins with Python"
+author: "Vaibhav Sharma"
+date: "2026-09-23"
+format: html
+jupyter: python3
+---
+
+## Introduction
+
+In this post, I explore the Palmer Penguins dataset using Python. I examine differences in body mass and flipper length among penguin species and visualize the relationship between these measurements.
+
+Data: [Palmer Penguins](https://allisonhorst.github.io/palmerpenguins/), Palmer Station Antarctica LTER.
+
+## Loading and exploring the data
+
+First, I load the Palmer Penguins dataset and examine its structure.
+
+```{python}
+#| message: false
+#| warning: false
+
+import pandas as pd
+import matplotlib.pyplot as plt
+from palmerpenguins import load_penguins
+
+penguins = load_penguins()
+penguins.head()
+```
+## Missing values
+
+Before analyzing the measurements, I check how many missing values occur in each variable.
+
+```{python}
+penguins.isna().sum()
+```
+## Summary by species
+
+Next, I calculate the average body mass and flipper length for each penguin species.
+
+```{python}
+species_summary = (
+    penguins
+    .groupby("species")
+    .agg(
+        average_body_mass=("body_mass_g", "mean"),
+        average_flipper_length=("flipper_length_mm", "mean")
+    )
+    .round(2)
+)
+
+species_summary
+```
+## Relationship between body mass and flipper length
+
+Finally, I visualize the relationship between body mass and flipper length for each penguin species.
+
+```{python}
+#| label: fig-penguin-measurements
+#| fig-cap: "Relationship between body mass and flipper length across penguin species."
+
+for species, group in penguins.groupby("species"):
+    plt.scatter(
+        group["flipper_length_mm"],
+        group["body_mass_g"],
+        label=species,
+        alpha=0.7
+    )
+
+plt.xlabel("Flipper Length (mm)")
+plt.ylabel("Body Mass (g)")
+plt.title("Body Mass vs. Flipper Length")
+plt.legend(title="Species")
+plt.show()
+```
+
+The plot suggests a positive relationship between flipper length and body mass. Penguins with longer flippers generally have greater body mass, while the species also form distinct groups.
